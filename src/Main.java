@@ -3,7 +3,6 @@ public class Main {
         isLeapYear(2000);
         recommendOS(2, 2000);
         printDelivery(calculateDeliveryDays(95));
-        ;
     }
 
     public static void isLeapYear(int year) {
