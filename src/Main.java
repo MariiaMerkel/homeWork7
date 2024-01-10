@@ -14,7 +14,6 @@ public class Main {
     }
 
     public static void recommendOS(int clientOS, int clientDeviceYear) {
-
         if (clientOS == 0) {
             if (clientDeviceYear >= 2015) {
                 System.out.println("Установите обычную версию приложения для Android по ссылке");
