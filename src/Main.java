@@ -1,3 +1,6 @@
+import java.util.Arrays;
+import java.util.Random;
+
 public class Main {
     public static void main(String[] args) {
         System.out.println(min(9, 5));
@@ -5,6 +8,10 @@ public class Main {
         System.out.println(raiseSecondPower(4));
         System.out.println(raiseThirdPower(4));
         checkNumber(16);
+        System.out.println(Arrays.toString(sortAscending(new int[]{1, 2, 8, 9, 55, 4})));
+        System.out.println(generateFloat());
+        System.out.println(generateInt(20));
+        System.out.println(roundFloat(5.9f));
 
     }
 
@@ -29,10 +36,36 @@ public class Main {
     }
 
     public static int[] sortAscending(int[] numbers) {
-        int[] result = new int[numbers.length];
-        for (int i = 0; i < result.length; i++) {
-
+        boolean unsorted = true;
+        while (unsorted) {
+            unsorted = false;
+            for (int i = 0; i < numbers.length - 1; i++) {
+                if (numbers[i] > numbers[i + 1]) {
+                    replaceElement(numbers, i, i + 1);
+                    unsorted = true;
+                }
+            }
         }
+        return numbers;
+    }
 
+    public static int[] replaceElement(int[] array, int one, int two) {
+        array[one] += array[two];
+        array[two] = array[one] - array[two];
+        array[one] -= array[two];
+        return array;
+    }
+
+    public static float generateFloat() {
+        return -9 + new Random().nextFloat() * (9 - (-9));
+    }
+
+    public static int generateInt(int num) {
+        return new Random().nextInt(num * (-1), num);
+    }
+
+    public static int roundFloat(float number) {
+        float fraction = number%1;
+        return fraction < 0.5 ? (int) number : (int) number + 1;
     }
 }
