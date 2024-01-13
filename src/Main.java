@@ -46,8 +46,8 @@ public class Main {
     }
 
     private static void printDelivery(int days) {
-        String wordForm = days > 1 ? " дня" : " день";
         if (days != 0) {
+            String wordForm = days > 1 ? " дня" : " день";
             System.out.println("Потребуется " + days + wordForm);
         } else {
             System.out.println("Доставки нет");
